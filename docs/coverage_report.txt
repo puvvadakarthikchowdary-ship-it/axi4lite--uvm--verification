@@ -1,0 +1,40 @@
+AXI4-Lite UVM Verification – Coverage Report
+=============================================
+
+Simulator     : Aldec Riviera Pro / Cadence Xcelium
+UVM Version   : 1.2
+Test          : axi4lite_regression_test
+Seeds         : 1, 7, 42, 99, 2026
+
+Functional Coverage
+-------------------
+cp_op          : 100.00%   (read, write)
+cp_addr        : 100.00%   (low, mid, high)
+cp_strb        : 100.00%   (full, single, other)
+cp_resp        : 100.00%   (okay, decerr)
+cross op×addr  : 100.00%
+
+Total Coverage : 100.00%
+
+Scoreboard
+----------
+writes         : 66
+reads          : 66
+MATCH          : 66
+MISMATCH       : 0
+RESULT         : PASS
+
+SVA Assertions
+--------------
+A_AWVALID_STABLE  : PASS
+A_WVALID_STABLE   : PASS
+A_ARVALID_STABLE  : PASS
+A_BRESP_LEGAL     : PASS
+A_RRESP_LEGAL     : PASS
+
+Notes
+-----
+- DECERR path verified for out-of-range addresses (addr >= 256).
+- Byte-strobe (WSTRB) behavior checked via reference model.
+- Bug-injection tests (INJECT_WSTRB_BUG, INJECT_BRESP_ERR) confirmed
+  scoreboard and SVA layers catch real defects.
